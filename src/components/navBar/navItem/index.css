@@ -1,0 +1,14 @@
+.nav-item-hover:hover {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color) !important;
+}
+
+/* .active {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color) !important;
+} */
+.nav-item-hover:hover:not(:has(img)),
+.active:not(:has(img)) {
+  background-color: var(--hover-bg-color);
+  color: var(--hover-text-color) !important;
+}

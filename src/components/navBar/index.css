@@ -1,0 +1,19 @@
+.rightMenu {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 20%;
+  justify-content: end;
+  padding-right: 1%;
+}
+
+.leftMenu {
+  display: flex;
+  flex-direction: row;
+  flex : 1 1 80%;
+}
+
+@media (max-width: 768px) {
+  .leftMenu {
+    display: none;
+  }
+}

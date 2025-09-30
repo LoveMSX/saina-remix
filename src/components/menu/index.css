@@ -1,0 +1,211 @@
+.circular-menu {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.circular-menu:hover {
+  transform: rotate(90deg) scale(1.2);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.menu-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.menu-center:hover {
+  background: #56A8DD;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Rotation inverse du menu center */
+.circular-menu:hover .menu-center {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.circular-menu:hover .menu-center:hover {
+  transform: translate(-50%, -50%) rotate(-90deg) scale(1.05);
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+.menu-item {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 18px;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu-item:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+}
+
+/* Conteneur pour chaque menu item qui gère la rotation inverse */
+.menu-item::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Rotation inverse uniquement du contenu des menu items */
+.circular-menu:hover .menu-item {
+  transform: rotate(-90deg);
+}
+
+.circular-menu:hover .menu-item:hover {
+  transform: rotate(-90deg) scale(1.05);
+}
+
+/* Positionnement des éléments du menu */
+.menu-item:nth-child(2) {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-item:nth-child(3) {
+  top: 45px;
+  right: 45px;
+}
+
+.menu-item:nth-child(4) {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+.menu-item:nth-child(5) {
+  bottom: 45px;
+  right: 45px;
+}
+
+.menu-item:nth-child(6) {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-item:nth-child(7) {
+  bottom: 45px;
+  left: 45px;
+}
+
+.menu-item:nth-child(8) {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+.menu-item:nth-child(9) {
+  top: 45px;
+  left: 45px;
+}
+
+/* Rotation inverse pour les éléments avec positionnement spécial */
+.circular-menu:hover .menu-item:nth-child(2) {
+  transform: translateX(-50%) rotate(-90deg);
+}
+
+.circular-menu:hover .menu-item:nth-child(4) {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+.circular-menu:hover .menu-item:nth-child(6) {
+  transform: translateX(-50%) rotate(-90deg);
+}
+
+.circular-menu:hover .menu-item:nth-child(8) {
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+/* Hover states avec rotation inverse */
+.circular-menu:hover .menu-item:nth-child(2):hover {
+  transform: translateX(-50%) rotate(-90deg) scale(1.05);
+}
+
+.circular-menu:hover .menu-item:nth-child(4):hover {
+  transform: translateY(-50%) rotate(-90deg) scale(1.05);
+}
+
+.circular-menu:hover .menu-item:nth-child(6):hover {
+  transform: translateX(-50%) rotate(-90deg) scale(1.05);
+}
+
+.circular-menu:hover .menu-item:nth-child(8):hover {
+  transform: translateY(-50%) rotate(-90deg) scale(1.05);
+}
+
+/* Animation de pulsation */
+@keyframes pulse {
+  0% {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.circular-menu {
+  animation: pulse 3s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .circular-menu {
+      width: 250px;
+      height: 250px;
+  }
+  
+  .menu-center {
+      width: 80px;
+      height: 80px;
+  }
+  
+  .menu-item {
+      width: 50px;
+      height: 50px;
+      font-size: 16px;
+  }
+}
