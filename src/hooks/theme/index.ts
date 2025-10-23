@@ -11,7 +11,7 @@ export const useThemeColors = ()=>{
     return 'light'
   };
 
-  const [theme, setTheme] = useState<ThemeMode>(getPreferredTheme)
+  const [theme, setTheme] = useState<ThemeMode>(getPreferredTheme())
   console.log(theme);
   
 
