@@ -1,0 +1,299 @@
+/* Message Page Styles */
+
+.message-container {
+  flex: 1;
+  height: 100%;
+  gap: 0;
+}
+
+.conversations-sidebar {
+  flex: 0 0 320px;
+  overflow-y: auto;
+}
+
+.conversations-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid;
+}
+
+.conversations-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.conversations-search {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.conversations-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.conversation-item {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.conversation-item:hover {
+  transform: none;
+}
+
+.conversation-item.active {
+  border-left-width: 3px;
+}
+
+.conversation-content {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.conversation-avatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.conversation-avatar-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.conversation-status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid;
+  box-shadow: 0 0 0 1px;
+}
+
+.conversation-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.conversation-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.conversation-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.conversation-unread-badge {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.conversation-last-message {
+  font-size: 0.85rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.conversation-status {
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Chat Area */
+
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chat-header-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.25rem;
+  position: relative;
+}
+
+.chat-header-status-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px;
+}
+
+.chat-header-details h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.chat-header-details p {
+  font-size: 0.85rem;
+}
+
+.chat-menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.messages-area {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  gap: 1rem;
+}
+
+.message-group {
+  display: flex;
+  justify-content: flex-start;
+  animation: slideUp 0.3s ease-out;
+}
+
+.message-group.sent {
+  justify-content: flex-end;
+}
+
+.message-bubble-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.message-group.sent .message-bubble-container {
+  align-items: flex-end;
+}
+
+.message-bubble {
+  max-width: 60%;
+  padding: 0.875rem 1.25rem;
+  border-radius: 1rem;
+  word-wrap: break-word;
+  transition: all 0.3s ease;
+}
+
+.message-bubble.sent {
+  border-radius: 1rem 1rem 0.25rem 1rem;
+  color: #fff;
+}
+
+.message-bubble.received {
+  border-radius: 1rem 1rem 1rem 0.25rem;
+}
+
+.message-time {
+  font-size: 0.75rem;
+}
+
+.typing-indicator {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Input Area */
+
+.input-area {
+  padding: 1.5rem;
+  border-top: 1px solid;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.message-input {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.message-input:focus {
+  outline: none;
+}
+
+.send-button {
+  padding: 0.875rem 2rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.send-button:hover {
+  transform: translateY(-2px);
+}
+

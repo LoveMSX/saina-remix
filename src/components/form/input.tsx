@@ -5,136 +5,143 @@ import type { FieldConfig } from "../../interfaces/components/form";
 const defaultStyle = {
   container: {
     display: "flex",
-    flexDirection: "row" as const,
-    justifyContent: "space-between" as const,
-    gap: 10,
-    alignItems: "center" as const,
-    marginBottom: "1rem"
+    flexDirection: "column" as const,
+    gap: 12,
+    marginBottom: "1.25rem"
   },
   label: {
-    marginBottom: "0.5rem",
-    color: "#212529",
-    fontSize: "1rem",
+    marginBottom: "0.375rem",
+    color: "#1f2937",
+    fontSize: "0.95rem",
     lineHeight: "1.5",
-    fontWeight: 'bold'
+    fontWeight: 600,
+    letterSpacing: '0.3px'
   },
   input: {
     display: "block",
-    padding: "0.375rem 0.75rem",
+    width: "100%",
+    padding: "0.75rem 1rem",
     fontSize: "1rem",
     fontWeight: "400",
     lineHeight: "1.5",
-    color: "#212529",
-    backgroundColor: "#fff",
+    color: "#1f2937",
+    backgroundColor: "#f9fafb",
     backgroundImage: "none",
-    border: "1px solid #ced4da",
-    borderRadius: "0.375rem",
-    transition: "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out",
+    border: "1.5px solid #e5e7eb",
+    borderRadius: "0.75rem",
+    transition: "all 0.2s ease-in-out",
     outline: "none"
   },
   inputFocus: {
-    borderColor: "#86b7fe",
-    boxShadow: "0 0 0 0.25rem rgba(13, 110, 253, 0.25)"
+    borderColor: "#0ea5e9",
+    boxShadow: "0 0 0 3px rgba(14, 165, 233, 0.1)",
+    backgroundColor: "#ffffff"
   },
   inputError: {
-    borderColor: "#dc3545",
-    boxShadow: "0 0 0 0.25rem rgba(220, 53, 69, 0.25)"
+    borderColor: "#ef4444",
+    boxShadow: "0 0 0 3px rgba(239, 68, 68, 0.1)"
   },
   inputDisabled: {
-    backgroundColor: "#e9ecef",
+    backgroundColor: "#f3f4f6",
     opacity: "1",
-    cursor: "not-allowed"
+    cursor: "not-allowed",
+    color: "#9ca3af"
   },
   textarea: {
     display: "block",
     width: "100%",
-    padding: "0.375rem 0.75rem",
+    padding: "0.75rem 1rem",
     fontSize: "1rem",
     fontWeight: "400",
     lineHeight: "1.5",
-    color: "#212529",
-    backgroundColor: "#fff",
+    color: "#1f2937",
+    backgroundColor: "#f9fafb",
     backgroundImage: "none",
-    border: "1px solid #ced4da",
-    borderRadius: "0.375rem",
-    transition: "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out",
+    border: "1.5px solid #e5e7eb",
+    borderRadius: "0.75rem",
+    transition: "all 0.2s ease-in-out",
     outline: "none",
     resize: "vertical" as const,
-    minHeight: "calc(1.5em + 0.75rem + 2px)"
+    minHeight: "calc(1.5em + 1.5rem + 2px)"
   },
   select: {
     display: "block",
     width: "100%",
-    padding: "0.375rem 2.25rem 0.375rem 0.75rem",
+    padding: "0.75rem 1rem",
     fontSize: "1rem",
     fontWeight: "400",
     lineHeight: "1.5",
-    color: "#212529",
-    backgroundColor: "#fff",
-    backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e\")",
+    color: "#1f2937",
+    backgroundColor: "#f9fafb",
+    backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1 6 7 7 7-7'/%3e%3c/svg%3e\")",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "right 0.75rem center",
     backgroundSize: "16px 12px",
-    border: "1px solid #ced4da",
-    borderRadius: "0.375rem",
-    transition: "border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out",
+    border: "1.5px solid #e5e7eb",
+    borderRadius: "0.75rem",
+    transition: "all 0.2s ease-in-out",
     outline: "none",
-    appearance: "none" as const
+    appearance: "none" as const,
+    paddingRight: "2.5rem"
   },
   checkbox: {
-    width: "1em",
-    height: "1em",
-    marginTop: "0.25em",
+    width: "1.25rem",
+    height: "1.25rem",
+    marginTop: "0.125rem",
     verticalAlign: "top",
     backgroundColor: "#fff",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
-    border: "1px solid rgba(0, 0, 0, 0.25)",
+    border: "1.5px solid #d1d5db",
     appearance: "none" as const,
-    borderRadius: "0.25em",
-    cursor: "pointer"
+    borderRadius: "0.375rem",
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out"
   },
   radio: {
-    width: "1em",
-    height: "1em",
-    marginTop: "0.25em",
+    width: "1.25rem",
+    height: "1.25rem",
+    marginTop: "0.125rem",
     verticalAlign: "top",
     backgroundColor: "#fff",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
-    border: "1px solid rgba(0, 0, 0, 0.25)",
+    border: "1.5px solid #d1d5db",
     appearance: "none" as const,
     borderRadius: "50%",
-    cursor: "pointer"
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out"
   },
   errorText: {
     width: "100%",
-    marginTop: "0.25rem",
-    fontSize: "0.875em",
-    color: "#dc3545"
+    marginTop: "0.375rem",
+    fontSize: "0.875rem",
+    color: "#ef4444",
+    fontWeight: 500
   },
   requiredAsterisk: {
-    color: "#dc3545",
-    marginLeft: "0.25rem"
+    color: "#ef4444",
+    marginLeft: "0.25rem",
+    fontWeight: 700
   },
   checkboxLabel: {
-    marginLeft: "0.5rem",
-    fontSize: "1rem",
-    fontWeight: "400",
-    color: "#212529",
+    marginLeft: "0.75rem",
+    fontSize: "0.95rem",
+    fontWeight: "500",
+    color: "#1f2937",
     cursor: "pointer"
   },
   radioContainer: {
     display: "flex",
     flexDirection: "column" as const,
-    gap: "0.5rem"
+    gap: "0.75rem"
   },
   radioItem: {
     display: "flex",
     alignItems: "center",
-    gap: "0.5rem"
+    gap: "0.75rem"
   }
 };
 
@@ -287,19 +294,19 @@ const Input = <T extends Record<string, any>>({
 
   return (
     <div style={defaultStyle.container}>
-      <div>
-        {field.type !== 'checkbox' && (
-          <label style={{...defaultStyle.label, ...labelStyle}}>
-            {field.label}
-            {field.required && <span style={defaultStyle.requiredAsterisk}>*</span>}
-          </label>
-        )}
-      </div>
+      {field.type !== 'checkbox' && (
+        <label style={{...defaultStyle.label, ...labelStyle}}>
+          {field.label}
+          {field.required && <span style={defaultStyle.requiredAsterisk}>*</span>}
+        </label>
+      )}
       <div>
         {renderInput()}
       </div>
       {error && touched && (
-        <p style={defaultStyle.errorText}>{error}</p>
+        <p style={defaultStyle.errorText}>
+          <span>⚠️ {error}</span>
+        </p>
       )}
     </div>
   );

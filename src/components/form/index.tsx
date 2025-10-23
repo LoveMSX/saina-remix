@@ -77,31 +77,49 @@ const GenericForm = <T extends Record<string, any>>({
           <button
             type="submit"
             disabled={loading}
-
             style={{
-              backgroundColor:colors.secondary,
+              backgroundColor: colors.primary,
               fontSize: '1rem',
-              padding : '0.5rem',
-              color: colors.primaryBackground,
+              padding: '0.875rem 1.5rem',
+              color: '#ffffff',
               border: "none",
-              borderRadius : '0.375rem',
-              fontWeight : 'bold'
+              borderRadius: '0.75rem',
+              fontWeight: 600,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? 0.7 : 1,
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 6px -1px rgba(14, 165, 233, 0.3)',
+              letterSpacing: '0.5px'
             }}
+            onMouseEnter={(e) => !loading && (e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(14, 165, 233, 0.4)')}
+            onMouseLeave={(e) => !loading && (e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(14, 165, 233, 0.3)')}
           >
-            {loading ? 'Chargement...' : submitText}
+            {loading ? '⏳ Chargement...' : submitText}
           </button>
-          
+
           {showInitButton && (<button
             type="button"
             onClick={handleReset}
             disabled={loading}
+            style={{
+              backgroundColor: colors.secondaryBackground,
+              fontSize: '1rem',
+              padding: '0.875rem 1.5rem',
+              color: colors.text,
+              border: `1.5px solid ${colors.border}`,
+              borderRadius: '0.75rem',
+              fontWeight: 600,
+              cursor: loading ? 'not-allowed' : 'pointer',
+              opacity: loading ? 0.7 : 1,
+              transition: 'all 0.3s ease'
+            }}
           >
             {resetText}
           </button>)}
 
           {showGoogleLogin && onGoogleLoginSuccess && (
-            <div style={{width:'100%'}}>
-              <GoogleLogin 
+            <div style={{width:'100%', marginTop: '0.5rem'}}>
+              <GoogleLogin
                 onSuccess={onGoogleLoginSuccess}
                 text="continue_with"
                 size="large"

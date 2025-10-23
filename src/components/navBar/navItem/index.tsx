@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 
 import type { NavItemProps } from "../../../interfaces/components/navItem";
 import type { CSSProperties } from "react";
-import { useThemeColors } from "../../../hooks/theme";
 import './index.css'
 
 type Props = NavItemProps & {
@@ -11,33 +10,42 @@ type Props = NavItemProps & {
 
 
 export const NavItem = ({name,path,type,logo,style}:Props)=>{
-  const colors = useThemeColors()
-  const defaultStyle = {
-    fontWeight: 500,
-    color: colors.secondary,
-    textDecoration: 'inherit',
-    padding : '1%',
-    // '--hover-scale': 2,
-    transition : 'background-color 0.3s ease',
-    '--hover-bg-color':colors.primary,
-    '--hover-text-color' : colors.primaryBackground,
-    alignContent : "center"
-  } as CSSProperties
+  // Icon mapping for navigation items
+  const iconMap: {[key: string]: string} = {
+    'Accueil': '🏠',
+    'Actualités': '📰',
+    'Messages': '💬',
+    'Profil': '👤',
+    'Paramètres': '⚙️'
+  }
 
   switch (type) {
     case "icon":
       return (
-        <NavLink style={{...style,marginInline:20}} key={new Date().getTime()} to={path}>
-          <div>
-            <img width={logo?.logoWidth} height={logo?.logoHeight}  src={logo?.logoUrl}/>
+        <NavLink
+          style={{...style, marginInline: 12, padding: '0.5rem'}}
+          to={path}
+          className="nav-item-icon"
+        >
+          <div className="icon-wrapper">
+            <img width={logo?.logoWidth} height={logo?.logoHeight} src={logo?.logoUrl} alt="Logo"/>
           </div>
         </NavLink>
       )
-  
+
     default:
       return (
-        <NavLink className="nav-item-hover" style={{...defaultStyle, ...style}} key={new Date().getTime()} to={path}><p>{name}</p></NavLink>
-      ) 
+        <NavLink
+          className={({isActive}) => `nav-item-text ${isActive ? 'active' : ''}`}
+          style={style}
+          to={path}
+        >
+          <span className="nav-item-icon-emoji">
+            {iconMap[name] || '📌'}
+          </span>
+          <span>{name}</span>
+        </NavLink>
+      )
   }
 
 }
