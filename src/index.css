@@ -15,27 +15,27 @@
   -moz-osx-font-smoothing: grayscale;
   color-scheme: light dark;
 
-  /* Modern Color Palette - HSL Semantic Tokens */
-  --primary: 199 89% 48%;
-  --primary-glow: 199 89% 68%;
-  --primary-dark: 199 89% 38%;
+  /* Dark Theme - AI Inspired Palette (HSL) */
+  --primary: 250 95% 65%;        /* Blue-violet vibrant */
+  --primary-glow: 250 95% 75%;
+  --primary-dark: 250 95% 55%;
   
-  --secondary: 142 71% 45%;
-  --secondary-glow: 142 71% 65%;
+  --secondary: 271 81% 56%;      /* Purple accent */
+  --secondary-glow: 271 81% 76%;
   
-  --accent: 271 81% 56%;
-  --accent-glow: 271 81% 76%;
+  --accent: 142 71% 45%;         /* Green accent */
+  --accent-glow: 142 71% 65%;
   
-  --background: 220 14% 96%;
-  --surface: 0 0% 100%;
-  --surface-glass: 0 0% 100% / 0.7;
+  --background: 222 47% 8%;      /* Very dark blue-gray */
+  --surface: 220 26% 14%;        /* Dark card background */
+  --surface-glass: 220 26% 14% / 0.7;
   
-  --text-primary: 222 47% 11%;
-  --text-secondary: 215 16% 47%;
-  --text-muted: 215 16% 65%;
+  --text-primary: 0 0% 98%;      /* Almost white */
+  --text-secondary: 220 9% 70%;  /* Light gray */
+  --text-muted: 220 9% 50%;
   
-  --border: 214 32% 91%;
-  --border-light: 0 0% 90%;
+  --border: 220 20% 20%;         /* Subtle dark border */
+  --border-light: 220 20% 25%;
   
   /* Modern Gradients */
   --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
@@ -66,7 +66,7 @@ body {
   overflow: hidden;
   height: 100vh;
   font-size: clamp(1rem, 0.95rem + 0.25vw, 1.25rem);
-  background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(237 50% 94%) 50%, hsl(213 20% 88%) 100%);
+  background: hsl(var(--background));
   position: relative;
   color: hsl(var(--text-primary));
 }
