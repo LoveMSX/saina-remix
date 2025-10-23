@@ -3,16 +3,19 @@
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  /* background: linear-gradient(45deg, #ff6b6b, #4ecdc4); */
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: hsl(var(--surface-glass));
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-xl), var(--shadow-glow);
+  border: 1px solid hsl(var(--border));
+  transition: var(--transition-spring);
   cursor: pointer;
   overflow: hidden;
 }
 
 .circular-menu:hover {
   transform: rotate(90deg) scale(1.2);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-xl), var(--shadow-glow-accent);
 }
 
 .menu-center {
@@ -23,18 +26,19 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background: white;
+  background: var(--gradient-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-lg);
   z-index: 10;
-  transition: all 0.3s ease;
+  transition: var(--transition-smooth);
 }
 
 .menu-center:hover {
-  background: #56A8DD;
+  background: var(--gradient-ai);
   transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Rotation inverse du menu center */
@@ -48,7 +52,7 @@
 
 .menu-icon {
   font-size: 24px;
-  color: #333;
+  color: white;
   font-weight: bold;
 }
 
@@ -57,24 +61,26 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: white;
+  background: hsl(var(--surface));
+  border: 2px solid hsl(var(--border));
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-smooth);
   cursor: pointer;
   font-size: 18px;
-  color: #333;
+  color: hsl(var(--text-primary));
   font-weight: bold;
   text-decoration: none;
 }
 
 .menu-item:hover {
-  background: #007bff;
+  background: var(--gradient-primary);
   color: white;
+  border-color: transparent;
   transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Conteneur pour chaque menu item qui gère la rotation inverse */
@@ -177,13 +183,13 @@
 /* Animation de pulsation */
 @keyframes pulse {
   0% {
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
   }
   50% {
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: var(--shadow-xl), var(--shadow-glow-accent);
   }
   100% {
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      box-shadow: var(--shadow-xl), var(--shadow-glow);
   }
 }
 
